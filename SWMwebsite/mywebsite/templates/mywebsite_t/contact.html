@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact page</title>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'mywebsite_s/css/contact.css' %}">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="text-white mt-5 mb-2">Contact Page</h1>
+            <div class="text-center text-black mb-3">Do you have any questions? Please do not hesitate to contact.</div>
+            <div class="row text-center text-black my-2">
+                        <div class="col-sm-12">
+                        <form>
+                                <div class="form-row">
+                                    <div class="form-group col-md-6">
+                                    <label for="inputEmail4 ss-color">Your Name</label>
+                                    <input type="email" class="form-control" id="inputEmail4" placeholder="Email">
+                                    </div>
+                                    <div class="form-group col-md-6">
+                                    <label for="inputPassword4 ss-color">Your Email*</label>
+                                    <input type="password" class="form-control" id="inputPassword4" placeholder="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Address</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your address over here.."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleFormControlTextarea1">Your Message*</label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Your Message over here.."></textarea>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary mt-2">Send</button>
+                            </form>          
+                        </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

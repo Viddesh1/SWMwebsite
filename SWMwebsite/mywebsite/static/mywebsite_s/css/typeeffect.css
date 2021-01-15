@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+
+
+
+.swmType{
+  white-space: nowrap;
+  overflow: hidden;    
+  font-family: 'Source Code Pro', monospace;  
+  font-size: 50px;
+  color:white;
+}
+
+/* Animation */
+.swmType {
+  animation: animated-text 2s steps(30,end) 1s 1 normal both;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+  from{width: 0;}
+  to{width: 700px;}
+}

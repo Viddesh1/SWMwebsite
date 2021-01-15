@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study With Me</title>
+
+     <!--Js and css of div1 stopwatch-->
+    <script src="{% static 'mywebsite_s/js/stopwatch.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'mywebsite_s/css/stopwatch.css' %} ">
+
+    <!--Js and css of div2 Timer-->
+    <script src="{% static 'mywebsite_s/js/timer.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'mywebsite_s/css/timer.css' %} ">
+
+    <!--Js and css of div4 White Music-->
+    <script src="{% static 'mywebsite_s/js/music.js' %}"></script>
+
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <link rel="stylesheet" href=" {% static 'mywebsite_s/css/main.css' %}">
+
+    <!--Animate.css-->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
+    <script>
+    function startAndEndTime()
+    {
+        var start_timer = document.getElementById("startTime").value;
+        var end_timer = document.getElementById("endTime").value;
+        document.getElementById("startTimer").innerText = start_timer;
+        document.getElementById("endTimer").innerText = end_timer;
+    }
+    </script>
+
+</head>
+<body>
+<body id="divcontainer" onLoad="display()">
+    <!-- Image and text -->
+    <nav id="nav" class="navbar navbar-light  nav-inner bg-gradientone">
+    <div  class="container-fluid">
+        <a class="navbar-brand" href="#">
+        <img src="{% static 'mywebsite_s/images/SWM.svg' %}" alt="Study With Me svg" width="40" height="34" class="d-inline-block align-top">
+           WWW.StudyWithMe.com
+        </a>
+        <!-- <a class="navbar-brand" href="#" class="d-inline-block align-right ">
+            WWW.StudyWithMe.com
+        </a> -->
+        <nav class="navbar navbar-light bg-transparent p-0">
+            <form class="container-fluid justify-content-start">
+                <a class="btn  me-5 border" href="{% url 'logout' %}" role="button" id="btnsignupid">Logout</a>
+                <a class="btn border" href="{% url 'contact' %}" role="button" id="btnloginid">Contact</a>
+                <script type="text/javascript">
+                const buttons = document.querySelectorAll('#btnsignupid, #btnloginid');
+                    buttons.forEach(btn => {
+                        btn.addEventListener('click', function(e){
+                            let x = e.clientX - e.target.offsetLeft;
+                            let y = e.clientY - e.target.offsetTop;
+
+                            let ripples = document.createElement('span')
+                            ripples.style.left = x + "px";
+                            ripples.style.top = y + "px";
+                            this.appendChild(ripples);
+
+                            setTimeOut(() => {
+                                ripples.remove()
+                            },1000)
+                        })
+                    })
+                </script>
+            </form>
+        </nav>
+    </div>
+    </nav>
+    <!-- Horizontal line -->
+    <hr class="bg-white p-1 my-0">
+
+    <!--Div1 Username and Day/Month/Year-->
+    <div class="container-fluid animate__animated animate__flipInX">
+        <div class="row my-2 bg-gradienttwo">
+            <div class="col-sm-6 d-flex justify-content-around">
+                <h3>Welcome, {{full_name}}</h3>
+            </div>
+            <div class="col-sm-6 d-flex justify-content-around">
+                <h3>{{current_date_time}}</h3>
+            </div>
+        </div>
+    </div>
+
+    <!--Div2 StopWatch
+    <div class="container-fluid2">
+        <div class="container-fluid">
+            <div class="row my-2 bg-gradienttwo">
+                <div class="col-sm-6 d-flex justify-content-start mr-0">
+                    <strong>Stop Watch</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-fluid inline-block">
+            <div class="row my-2 bg-gradienttwo">
+                <div class="col-sm-6 d-flex justify-content-start mr-0">
+                    <strong>Timer</strong>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <!--Div2 StopWatch, Timer, Notification, White Noise-->
+    <div class="container-fluid">
+        <div class="container-fluid">
+            <div class="row my-2 d-flex justify-content-around">
+                <div class="col-sm-6 bg-gradientthree animate__animated animate__bounceInLeft">
+                    <form name="stpw">
+                    <div class="col-sm-3">
+                        <strong>Stop Watch</strong>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-2">
+                        <!-- <h1>00:00:00</h1> -->
+                        <input type="text" Name="time" class="show" value="0" style="font-size: 24px">
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-2">
+                        <button type="button" class="btn btn-success" value="Start" onClick="start()">Start</button>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-around my-2">
+                        <button type="button" class="btn btn-danger" value="Stop" onClick="stop()">Stop</button>
+                        <button type="button" class="btn btn-primary" value="Reset" onClick="swreset()">Reset</button>
+                    </div>
+                    </form>
+                </div>
+                    
+                <div class="col-sm-6 bg-gradientthree animate__animated animate__bounceInRight">
+                    <div class="col-sm-2">
+                        <strong>Timer</strong>
+                    </div>
+                    <!--<div class="col-sm-12 my-2 d-flex justify-content-around">
+                        <form action="" method="POST">
+                            <input type="time" id="appt" name="appt" style="width:200%;">
+                        </form>
+                        <button type="button" class="btn btn-danger">Set</button>
+                    </div>-->
+                    <div class="col-sm-12 d-flex justify-content-center">
+                        <input type="text" Name="time" class="show1" value="Jan 9, 2021 17:5:00" id="demo">
+                    </div>
+                    <div class="col-sm-12 my-2 d-flex justify-content-around my-4">
+                        <button type="button" class="btn btn-success" value="Start2" onClick="start2()">Start</button>
+                        <!--<button type="button" class="btn btn-primary">Reset</button> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-2 d-flex justify-content-around">
+                <div class="col-md-6 bg-gradientthree animate__animated animate__bounceInLeft">
+                    <div class="col-sm-3">
+                        <strong>Notification</strong>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-3">
+                        <h1>No Notification Set</h1>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-3">
+                        <button type="button" class="btn btn-success">Open Time Picker</button>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-3">
+                        <button type="button" class="btn btn-danger">Cancel Notification</button>
+                    </div>
+                </div>
+                <div class="col-md-6 bg-gradientthree animate__animated animate__bounceInRight">
+                    <div class="col-sm-3">
+                        <strong>White Noise</strong>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-center my-1">
+                        <h4>Rain.mp3</h4>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-around my-2">
+                        <audio id="myAudio1">
+                            <source src="{% static 'mywebsite_s/music/rain.mp3' %}" type="audio/mpeg">
+                        </audio>
+                        <button type="button" class="btn btn-success" onclick="playAudio1()">Play</button>
+                        <button type="button" class="btn btn-primary" onclick="pauseAudio1()">Pause</button>
+                    </div>
+                    <hr class="bg-white p-1 my-0">
+                    <div class="col-sm-12 d-flex justify-content-center my-2">
+                        <h4>Campfire.mp3</h4>
+                    </div>
+                    <div class="col-sm-12 d-flex justify-content-around my-2">
+                        <audio id="myAudio2">
+                            <source src=" {% static 'mywebsite_s/music/campfire.mp3' %} " type="audio/mpeg">
+                        </audio>
+                        <button type="button" class="btn btn-success" onclick="playAudio2()">Play</button>
+                        <button type="button" class="btn btn-primary" onclick="pauseAudio2()">Pause</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Div3 To-Do List-->
+    <div class="container-fluid">
+        <div class="row my-2 bg-gradienttwo">
+            <div class="col-sm-12 d-flex justify-content-around">
+                <h1>To-Do List</h1>
+            </div>
+            <div class="col-sm-12 d-flex justify-content-around">
+              <!--  <form action="" method="POST">
+                   <h4>Start Time:</h4><input type="time" id="startTime" name="startTimer" style="width:200%;">
+                </form>
+                <form action="" method="POST">
+                   <h4>End Time:</h4><input type="time" id="endTime" name="endTimer" style="width:200%;">
+                </form> -->
+            </div>
+            <!-- <div class="col-sm-12 d-flex justify-content-around my-2">
+                <div class="col-sm-10 d-flex justify-content-around " style="border: 1px solid black;">
+                    <div class="col-sm-12 d-flex justify-content-center" style="background-color: grey;">
+                        <h1>Day/Month/Year (Time) Start time - End  time</h1>
+                    </div>
+                </div>
+            </div> -->
+            <div class="col-sm-12 d-flex justify-content-around my-2">
+                <div class="col-sm-11 d-flex justify-content-around my-2 d-flex flex-column">
+                    <!--<div class="col-sm-12 d-flex justify-content-center" style="background-color: grey;">
+                        <h1 class="d-flex justify-content-center">{{current_date_time}}</h1>
+                    </div>
+                     <div class="col-sm-12 d-flex justify-content-center d-flex flex-column" style="height: 400px; width: 100%; background-color: rgb(224, 219, 219);">
+                        The Text that you want
+                    </div> 
+                    <div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
+                            
+                        </textarea>
+                    </div> -->
+                    <div class="col-sm-12 d-flex justify-content-center mt-3 mb-1">
+                        <a type="button" class="btn btn-success" onclick="startAndEndTime()" href="{% url 'addpost' %}">Add</a>
+                    </div>
+                </div>
+                
+            </div> 
+
+        </div>
+    </div>
+
+    <!--Div4 To-Do List Result-->
+    <div class="container-fluid">
+        <div class="row my-2 bg-gradienttwo">
+            <div class="col-sm-12 d-flex justify-content-around mb-0">
+                <h1>Your To-Do List</h1>
+            </div>
+           
+            <!-- <div class="col-sm-12 d-flex justify-content-around my-2">
+                <div class="col-sm-10 d-flex justify-content-around " style="border: 1px solid black;">
+                    <div class="col-sm-12 d-flex justify-content-center" style="background-color: grey;">
+                        <h1>Day/Month/Year (Time) Start time - End  time</h1>
+                    </div>
+                </div>
+            </div> -->
+            {% for y_list in your_list %}
+            <div class="col-sm-12 d-flex justify-content-around mt-0">
+                <div class="col-sm-11 d-flex justify-content-around my-2 d-flex flex-column">
+                <form action="" method="POST">
+                {% csrf_token %}
+                    <div class="col-sm-12 d-flex justify-content-center" style="background-color: grey;">
+                        <h1 class="d-flex justify-content-center">{{current_date_time}} <!--(<label id='startTimer'>Start Time</label> - <label id='endTimer'>End Time</label>) --> {{y_list.start_time}} - {{y_list.end_time}}</h1>
+                    </div>
+                     <div class="col-sm-12 d-flex justify-content-start d-flex flex-column" style="height: 150px; width: 100%; background-color: rgb(224, 219, 219);">
+                        <pre>{{y_list.desc}}<pre> 
+                    </div>
+                    <!--<div class="form-group">
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">
+                            
+                        </textarea> 
+                    </div> -->
+                    </form>
+                    <div class="col-sm-12 d-flex flex-row justify-content-around mt-3 mb-1">
+                        <!-- <button type="button" class="btn btn-success">Completed</button> -->
+                        <a type="button" class="btn btn-warning" href="{% url 'updatepost' y_list.id %}">Edit</a>
+                        <!--<a type="button" class="btn btn-danger" href="{% url 'deletepost' y_list.id %}">Delete</a> -->
+                                   <form action="{% url 'deletepost' y_list.id %}" method="POST" class="d-inline">
+                                        {% csrf_token %}
+                                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+                                    </form> 
+                         
+                        <!--<form action="{% url 'deletepost' y_list.id %}" method="POST" class="d-inline">
+                            {% csrf_token %}
+                            <input type="submit" class="btn btn-danger btn-sm" value="Delete">  -->
+                             <!--<button type="button" class="btn btn-danger">Delete</button> -->
+                
+                    </div>
+                    
+                </div>
+                
+            </div> 
+            {% endfor %}
+
+        </div>
+    </div>
+
+     <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+</body>
+</html>

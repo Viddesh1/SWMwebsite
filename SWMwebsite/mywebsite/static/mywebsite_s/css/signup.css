@@ -1,0 +1,6 @@
+body{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg, #F2A5A5, #EF4848);
+    z-index: 1;
+}

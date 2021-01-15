@@ -1,0 +1,215 @@
+/* NavBar code Style */
+
+/* .hrwhiteline{
+    height:3px;
+    width: 200%;
+    margin-left: -50%;
+    color:rgb(248, 240, 240);
+    background-color:rgb(248, 240, 240);
+    position: relative;
+    top:28px;
+} */
+
+.bg-gradient{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg, #F2A5A5, #EF4848);
+    z-index: 1;
+}
+
+#btnsignupid, #btnloginid{
+    position: relative;
+    display: inline-block;
+    padding: 6px 16px;
+    margin: 5px 0;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #0162c8, #55e7fc);
+}
+#btnsignupid:hover{
+    background: linear-gradient(90deg, #2cf040, #1054F1);
+    text-decoration: none;
+}
+#btnloginid:nth-child(2){
+    background: linear-gradient(90deg, #755bea, #ff72c0);
+}
+#btnloginid:nth-child(2):hover{
+    background: linear-gradient(90deg, #2cf040, #1054F1);
+    text-decoration: none;
+}
+span{
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 0.5s linear alternate;
+}
+@keyframes animate
+{
+    0%
+    {
+        width: 0px;
+        height: 0px;
+        opacity: 0.5;
+    }
+    100%
+    {
+        width: 500px;
+        height: 500px;
+        opacity: 0.5;
+    }
+}
+body{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(90deg, #F2A5A5, #EF4848);
+    z-index: 1;
+}
+.nav-inner{
+    background-color: transparent;
+}
+.border{
+    border: 1px solid whitesmoke;
+}
+.bg-gradientone{
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(0deg, #F2A5A5, #EF4848);
+    z-index: 1;
+}
+
+/* *{
+    border: 1px solid white;
+} */
+.container-fluid {
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+ }
+ .svg-animation-container{
+    /* width: 500px; */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding: 5%;
+    margin: 0 auto;
+    border-radius: 20%;
+    height: 100%;
+    /* transform: translate(600px, 50px); */
+}
+ #Vector_10, #Vector_11, #Vector_12{
+    animation: changeColor 50s infinite alternate;
+}
+@keyframes changeColor{
+    0%{
+        fill: red;
+    }
+    10%{
+        fill: orange;
+    }
+    20%{
+        fill: yellow;
+    }
+    30%{
+        fill: green;
+    }
+    40%{
+        fill: blue;
+    }
+    50%{
+        fill: indigo;
+    }
+    60%{
+        fill: violet;
+    }
+    70%{
+        fill:aqua;
+    }
+    80%{
+        fill:hotpink;
+    }
+    90%{
+        fill:lime;
+    }
+    100%{
+        fill:deepskyblue;
+    }
+}
+/* https://digitalsynopsis.com/design/beautiful-color-ui-gradients-backgrounds/
+                            #CDE90C #00CCB8
+can you feel love tonight #4568dc → #b06ab3
+pinky  #dd5e89 → #f7bb97
+kashmir #614385 → #516395
+endless river #43cea2 → #185a9d */
+.buttonTheme1 {
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #CDE90C, #00CCB8);
+    padding: 5%;
+    border: 1px solid black;
+}
+.buttonTheme2 {
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #4568dc, #b06ab3);
+    padding: 5%;
+    border: 1px solid black;
+} 
+.buttonTheme3 {
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #dd5e89, #f7bb97);
+    padding: 5%;
+    border: 1px solid black;
+} 
+.buttonTheme4 {
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #3494e6, #ec6ead);
+    padding: 5%;
+    border: 1px solid black;
+}   
+.buttonTheme5 {
+    border-radius: 50%;
+    background-image: linear-gradient(90deg, #43cea2, #185a9d);
+    padding: 5%;
+    border: 1px solid black;
+} 
+/* body background theme */
+.bodybgTheme1{
+    background-image: linear-gradient(90deg, #CDE90C, #00CCB8);
+}
+.bodybgTheme2{
+    background-image: linear-gradient(90deg, #4568dc, #b06ab3);
+}
+.bodybgTheme3{
+    background-image: linear-gradient(90deg, #dd5e89, #f7bb97);
+}
+.bodybgTheme4{
+    background-image: linear-gradient(90deg, #3494e6, #ec6ead);
+}
+.bodybgTheme5{
+    background-image: linear-gradient(90deg, #43cea2, #185a9d);
+}
+
+/* body background theme nav */
+.bodybgTheme1nav{
+    background-image: linear-gradient(0deg, #CDE90C, #00CCB8);
+}
+.bodybgTheme2nav{
+    background-image: linear-gradient(0deg, #4568dc, #b06ab3);
+}
+.bodybgTheme3nav{
+    background-image: linear-gradient(0deg, #dd5e89, #f7bb97);
+}
+.bodybgTheme4nav{
+    background-image: linear-gradient(0deg, #3494e6, #ec6ead);
+}
+.bodybgTheme5nav{
+    background-image: linear-gradient(0deg, #43cea2, #185a9d);
+}
