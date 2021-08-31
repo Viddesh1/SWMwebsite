@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/69793689/131490387-f9995756-f6b1-4f22-a2e3-cef6872bb0b9.png" alt="SWMIcon"/>
+</p> 
+
 # SWMwebsite
  This is a Simple SWMwebsite project
 
